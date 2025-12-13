@@ -1,0 +1,123 @@
+/* Leaflet CSS - @import must be at the top */
+@import 'leaflet/dist/leaflet.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles */
+@layer base {
+  body {
+    @apply bg-green-50 text-gray-900;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes flame {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.1) rotate(-5deg);
+  }
+  75% {
+    transform: scale(1.1) rotate(5deg);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-flame {
+  animation: flame 1s ease-in-out infinite;
+}
+
+/* Glassmorphism utilities */
+.glass {
+  @apply bg-white/40 backdrop-blur-md;
+}
+
+.glass-dark {
+  @apply bg-white/20 backdrop-blur-lg;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-emerald-300/50 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-emerald-400/70;
+}
+
+/* Leaflet z-index 제한 */
+.leaflet-container {
+  z-index: 400 !important;
+}
+
+.leaflet-pane {
+  z-index: 400 !important;
+}
+
+.leaflet-map-pane {
+  z-index: 400 !important;
+}
+
+.leaflet-tile-pane {
+  z-index: 200 !important;
+}
+
+.leaflet-overlay-pane {
+  z-index: 400 !important;
+}
+
+.leaflet-shadow-pane {
+  z-index: 500 !important;
+}
+
+.leaflet-marker-pane {
+  z-index: 600 !important;
+}
+
+.leaflet-tooltip-pane {
+  z-index: 650 !important;
+}
+
+.leaflet-popup-pane {
+  z-index: 700 !important;
+}
+
+.leaflet-control {
+  z-index: 800 !important;
+}
+
+/* 모달이 항상 위에 표시되도록 */
+.leaflet-container ~ * {
+  position: relative;
+  z-index: 9999 !important;
+}
+
+/* 모달 컨테이너가 지도 위에 표시되도록 */
+[class*="Modal"] {
+  z-index: 99999 !important;
+  position: fixed !important;
+}
