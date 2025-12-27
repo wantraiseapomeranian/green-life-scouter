@@ -3,7 +3,6 @@
 ## 🔎 프로젝트 링크
 https://green-life-scouter.vercel.app/
 
----
 
 ## 📋 프로젝트 소개
 
